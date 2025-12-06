@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heraldica García Gaona - Raíces Sefardíes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Variables y Estilos Generales */
+        :root {
+            --color-primario: #3b5998; /* Azul Profundo / Heráldico */
+            --color-secundario: #C69A5E; /* Dorado Antiguo / Sepia */
+            --color-fondo: #f5f5f5; /* Fondo Claro */
+            --color-texto: #333;
+            --fuente-titulo: 'Playfair Display', serif;
+            --fuente-cuerpo: 'Roboto', sans-serif;
+        }
+
+        body {
+            font-family: var(--fuente-cuerpo);
+            color: var(--color-texto);
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-fondo);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--color-primario);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-family: var(--fuente-titulo);
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        /* Contenedor Principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        /* Secciones */
+        section {
+            background-color: white;
+            padding: 2rem;
+            margin-top: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            font-family: var(--fuente-titulo);
+            color: var(--color-primario);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--color-secundario);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Estilo Biografía */
+        .bio-info strong {
+            color: var(--color-secundario);
+        }
+
+        /* Estilo Botón y Documentos */
+        .documentos {
+            text-align: center;
+            background-color: var(--color-primario);
+            color: white;
+        }
+
+        .documentos h2 {
+            color: white;
+            border-bottom: 2px solid var(--color-secundario);
+        }
+
+        .btn-link {
+            display: inline-block;
+            background-color: var(--color-secundario);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            margin: 1rem 0;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 700;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-link:hover {
+            background-color: #A9804B;
+            transform: translateY(-2px);
+        }
+
+        /* Impacto Sefardí */
+        .sefardi-historia {
+            background-color: #fffaf0; /* Color pergamino */
+            border-left: 5px solid var(--color-secundario);
+        }
+        
+        /* Responsive Design (Versión Móvil) */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            section {
+                padding: 1rem;
+                margin-top: 1rem;
+            }
+            section h2 {
+                font-size: 1.5rem;
+            }
+            .btn-link {
+                width: 80%;
+                display: block;
+                margin: 1rem auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Heraldica García Gaona</h1>
+        <p>Raíces, Historia y Legado Sefardí-MX</p>
+    </header>
+
+    <div class="container">
+        
+        <section class="sefardi-historia">
+            <h2>Sefarad-MX: El Legado de la Diáspora en el Noreste</h2>
+            <p>Este proyecto se enmarca en la vasta historia de **Sefarad**, el nombre hebreo de la Península Ibérica, y la diáspora que se extendió hasta el Nuevo Mundo tras el Edicto de Expulsión de 1492. La huella sefardí no solo se consolidó en la Ciudad de México, sino que tuvo un impacto profundo en el Noreste del país (Coahuila y Nuevo León), donde muchos conversos o "criptojudíos" se asentaron buscando refugio de la Inquisición.</p>
+            <p>La historia de la familia García y De La Peña, con profundas raíces en Coahuila, se une a este legado de tenacidad y preservación cultural. Documentar este linaje no es solo trazar una genealogía familiar, sino honrar la memoria de aquellos que mantuvieron viva su identidad a través de los siglos, contribuyendo a la rica diversidad cultural de México.</p>
+        </section>
+
+        <section>
+            <h2>Biografía: Francisco García De La Peña</h2>
+            <p>La documentación anexa a este proyecto traza la vida de **Francisco García De La Peña**, una figura central en la continuidad de esta estirpe familiar en Coahuila, México.</p>
+            
+            <div class="bio-info">
+                <p><strong>Nacimiento y Orígenes:</strong> Francisco nació y fue bautizado el <strong>20 de diciembre de 1883</strong> en **San Francisco de Asís, General Cepeda, Coahuila, México**. Sus padres fueron **Jesus García Flores** y **Jacoba De La Peña Saucedo**.</p>
+                
+                <p><strong>Vida y Legado:</strong> Su vida transcurrió en la región de General Cepeda. Se casó con **María García García** y juntos continuaron el linaje. Francisco García De La Peña representa un eslabón vital entre el pasado profundo y las generaciones actuales, manteniendo viva la conexión con la tierra y los documentos de origen.</p>
+
+                <p>Su historia es un testimonio de la permanencia de la familia en Coahuila, una región con fuertes lazos históricos con los asentamientos sefardíes del Noreste mexicano.</p>
+            </div>
+        </section>
+
+        <section class="documentos">
+            <h2>Documentación Oficial</h2>
+            <p>Acceda a las fuentes primarias que confirman esta genealogía, incluyendo los actos de nacimiento y los documentos de origen:</p>
+            
+            <a href="PDF/Fuentes Francisco García Padre Hermilo García .pdf" class="btn-link" target="_blank">
+                Ver Documento de Fuentes y Actos de Nacimiento
+            </a>
+            <p style="font-size: 0.9rem;">(Archivo: Fuentes Francisco García Padre Hermilo García .pdf)</p>
+        </section>
+
+    </div>
+
+</body>
+</html>
