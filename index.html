@@ -1,245 +1,106 @@
-/*
- * index.js
- *
- * This code runs in index.html. It sets up the Login Manager and View Registry for the Tree.
- * There's not much code here, and it was included directly in index.html. However for integration into the
- * WikiTree.com website, it was separated out.
- *
- * New Views are added here, in the View Registry below.
- *
- */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WikiTree Tree Viewer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Aquí podrías enlazar tus estilos -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- jQuery (necesario porque el código usa $) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Aquí podrías enlazar otros scripts como WikiTreeAPI, LoginManager, etc. -->
+</head>
+<body>
+    <!-- Contenedor para login -->
+    <div id="wt-api-login"></div>
 
-var wtViewRegistry;
-window.addEventListener("DOMContentLoaded", (event) => {
-    const loginManager = new LoginManager(
-        WikiTreeAPI,
-        (events = {
-            onLoggedIn: (user) => {
-                document.querySelector(
-                    "#wt-api-login"
-                ).innerHTML = `Logged into Apps: ${user.name} (<a class="apiLogout" href="#">Logout</a>)`;
-            },
-            onUnlogged: () => {
-                document.querySelector("#wt-api-login").innerHTML = `
-          <form id="appsLoginForm" action="https://api.wikitree.com/api.php" method="POST">
-              <input type="hidden" name="action" value="clientLogin">
-              <input type="hidden" id="returnURL" name="returnURL" value="${window.location.href}">
-              <input type="submit" class="small" value="Apps Login"
-                title="Please login to the WikiTree Apps to use the Tree Viewer on non-public profiles.">
-          </form>
-          `;
+    <!-- Aquí se renderizarán las vistas -->
+    <div id="tree-viewer"></div>
 
-                if (typeof requireAppsLogin != "undefined" && requireAppsLogin) {
-                    $("#appsLoginForm").submit();
-                }
-            },
-        })
-    );
-    $("body").on("click", ".apiLogout", function (e) {
-        e.preventDefault();
-        loginManager.logout();
-    });
+    <script>
+    /*
+     * index.js convertido a HTML
+     * Este script configura el Login Manager y el View Registry para el árbol.
+     */
 
-    // To add a new View, add a unique keyword with a value of the new View().
-    // The default view is the first one (but this is only used if the user has
-    // not used the page before, since the last view used is saved in a cookie
-    // and used the next time the user goes to this page).
-    // Note: the keyword is used as part of the URL to get to the app.
-    const views = {
-        "fanchart": new FanChartView(),
-        "couples": new CouplesTreeView(),
-        "cctree": new CCTView(),
-        "ccdtree": new CCDView(),
-        "wt-dynamic-tree": new WikiTreeDynamicTreeViewer(),
-        "timeline": new TimelineView(),
-        "fandoku": new FandokuView(),
-        "fractal": new FractalView(),
-        "ahnentafel": new AhnentafelView(),
-        "surnames": new SurnamesView(),
-        "webs": new WebsView(),
-        "familygroup": new FamilyView(),
-        "printer-friendly": new PrinterFriendlyView(WikiTreeAPI, 6),
-        "calendar": new CalendarView(),
-        "portraits": new PortraitView(),
-        "nameTest": new NameTestView(),
-        "cc7": new CC7View(),
-        "ale": new ALEView(),
-        "descendants": new DescendantsView(),
-        "xtree": new XTreeView(),
-        "familyGroupApp": new FamilyGroupAppView(),
-        "superbig": new SuperBigFamView(),
-        "slippyTree": new SlippyTree(),
-        "stats": new StatsView(),
-        "wtPlusMaps": new WtPlusMaps(),
-        "oneNameTrees": new OneNameTrees(),
-        "ancestorsCemeteries": new AncestorsCemeteriesView(),
-        "heritage": new HeritageView(),
-        "timelineTree": new TimelineTreeView(),
-    };
+    var wtViewRegistry;
+    window.addEventListener("DOMContentLoaded", (event) => {
+        const loginManager = new LoginManager(
+            WikiTreeAPI,
+            (events = {
+                onLoggedIn: (user) => {
+                    document.querySelector(
+                        "#wt-api-login"
+                    ).innerHTML = `Logged into Apps: ${user.name} (<a class="apiLogout" href="#">Logout</a>)`;
+                },
+                onUnlogged: () => {
+                    document.querySelector("#wt-api-login").innerHTML = `
+              <form id="appsLoginForm" action="https://api.wikitree.com/api.php" method="POST">
+                  <input type="hidden" name="action" value="clientLogin">
+                  <input type="hidden" id="returnURL" name="returnURL" value="${window.location.href}">
+                  <input type="submit" class="small" value="Apps Login"
+                    title="Please login to the WikiTree Apps to use the Tree Viewer on non-public profiles.">
+              </form>
+              `;
 
-    for (let key in views) {
-        let meta = views[key]?.meta();
-        if (meta?.disabled) {
-            delete views[key];
+                    if (typeof requireAppsLogin != "undefined" && requireAppsLogin) {
+                        $("#appsLoginForm").submit();
+                    }
+                },
+            })
+        );
+
+        $("body").on("click", ".apiLogout", function (e) {
+            e.preventDefault();
+            loginManager.logout();
+        });
+
+        // Registro de vistas
+        const views = {
+            "fanchart": new FanChartView(),
+            "couples": new CouplesTreeView(),
+            "cctree": new CCTView(),
+            "ccdtree": new CCDView(),
+            "wt-dynamic-tree": new WikiTreeDynamicTreeViewer(),
+            "timeline": new TimelineView(),
+            "fandoku": new FandokuView(),
+            "fractal": new FractalView(),
+            "ahnentafel": new AhnentafelView(),
+            "surnames": new SurnamesView(),
+            "webs": new WebsView(),
+            "familygroup": new FamilyView(),
+            "printer-friendly": new PrinterFriendlyView(WikiTreeAPI, 6),
+            "calendar": new CalendarView(),
+            "portraits": new PortraitView(),
+            "nameTest": new NameTestView(),
+            "cc7": new CC7View(),
+            "ale": new ALEView(),
+            "descendants": new DescendantsView(),
+            "xtree": new XTreeView(),
+            "familyGroupApp": new FamilyGroupAppView(),
+            "superbig": new SuperBigFamView(),
+            "slippyTree": new SlippyTree(),
+            "stats": new StatsView(),
+            "wtPlusMaps": new WtPlusMaps(),
+            "oneNameTrees": new OneNameTrees(),
+            "ancestorsCemeteries": new AncestorsCemeteriesView(),
+            "heritage": new HeritageView(),
+            "timelineTree": new TimelineTreeView(),
+        };
+
+        for (let key in views) {
+            let meta = views[key]?.meta();
+            if (meta?.disabled) {
+                delete views[key];
+            }
         }
-    }
 
-    wtViewRegistry = new ViewRegistry(views, new SessionManager(WikiTreeAPI, loginManager));
-    wtViewRegistry.render();
-});
-
-//// "superbig": new SuperBigFamView(),        --ink-soft: #30343b;
-        --gold: #8c6b1f;
-        --gold-soft: #a28028;
-        --accent: #2e5cb8;
-        --muted: #5b616b;
-        --shadow: 0 12px 40px rgba(0,0,0,.08);
-      }
-    }
-
-    /* Base */
-    html, body {
-      background: radial-gradient(1200px 600px at 20% -10%, rgba(212,175,55,.08), transparent 60%) var(--bg);
-      color: var(--ink);
-      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol", sans-serif;
-      scroll-behavior: smooth;
-    }
-    * { box-sizing: border-box }
-    a { color: inherit; text-decoration: none }
-    .container { width: min(1120px, 92vw); margin: 0 auto }
-
-    /* Navbar */
-    .nav {
-      position: sticky; top: 0; backdrop-filter: blur(10px);
-      background: color-mix(in oklab, var(--bg) 80%, transparent);
-      border-bottom: 1px solid color-mix(in oklab, var(--gold) 25%, transparent);
-      z-index: 50;
-    }<a href="hermilo-Garcia.html">Hermilo García García</a>
-    .nav .bar {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 14px 0;
-    }
-    .brand {
-      display: flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: .3px;
-    }
-    .brand .mark {
-      width: 34px; height: 34px; border-radius: 50%;
-      background: radial-gradient(120% 120% at 30% 30%, var(--gold), var(--gold-soft) 60%, transparent 61%),
-                  conic-gradient(from 0deg at 50% 50%, transparent 0 20%, var(--gold) 20 22%, transparent 22 42%, var(--gold) 42 44%, transparent 44 64%, var(--gold) 64 66%, transparent 66 86%, var(--gold) 86 88%, transparent 88 100%);
-      box-shadow: 0 2px 10px rgba(0,0,0,.25);
-      position: relative; overflow: hidden;
-    }
-    .brand .mark::after {
-      content: ""; position: absolute; inset: 6px; border-radius: 50%;
-      border: 1px solid color-mix(in oklab, var(--gold) 60%, transparent);
-    }
-    .nav .links { display: flex; gap: 20px }
-    .nav .links a {
-      padding: 8px 12px; border-radius: 999px;
-      border: 1px solid transparent;
-    }
-    .nav .links a:hover { border-color: color-mix(in oklab, var(--gold) 30%, transparent) }
-
-    /* Hero */
-    .hero {
-      padding: 64px 0 40px;
-      position: relative;
-    }
-    .hero .panel {
-      border: 1px solid color-mix(in oklab, var(--gold) 25%, transparent);
-      border-radius: var(--radius);
-      background:
-        radial-gradient(1000px 500px at 85% -5%, rgba(110,168,255,.08), transparent 60%),
-        linear-gradient(180deg, color-mix(in oklab, var(--bg-soft) 92%, transparent), color-mix(in oklab, var(--bg) 95%, transparent));
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-    .hero .content {
-      display: grid; grid-template-columns: 1.2fr .8fr; gap: 20px;
-      padding: 28px;
-    }
-    @media (max-width: 880px) {
-      .hero .content { grid-template-columns: 1fr }
-    }
-    .eyebrow { color: var(--gold); font-weight: 600; letter-spacing: .2px; text-transform: uppercase; font-size: .85rem }
-    .title {
-      font-size: clamp(2.2rem, 4.5vw, 3.2rem); line-height: 1.08; margin: 10px 0 12px; font-weight: 800;
-    }
-    .lead {
-      color: var(--ink-soft); font-size: clamp(1rem, 2.2vw, 1.15rem); line-height: 1.6;
-    }
-    .cta {
-      display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap;
-    }
-    .btn {
-      padding: 12px 16px; border-radius: 12px; border: 1px solid color-mix(in oklab, var(--gold) 35%, transparent);
-      background: linear-gradient(180deg, color-mix(in oklab, var(--gold) 20%, transparent), transparent 60%);
-      color: var(--ink); font-weight: 600; box-shadow: 0 6px 20px rgba(212,175,55,.15);
-      transition: transform .15s ease, box-shadow .15s ease;
-    }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(212,175,55,.22) }
-    .btn.alt {
-      border-color: color-mix(in oklab, var(--accent) 45%, transparent);
-      background: linear-gradient(180deg, color-mix(in oklab, var(--accent) 18%, transparent), transparent 60%);
-      box-shadow: 0 6px 20px rgba(110,168,255,.15);
-    }
-
-    /* Mosaic (lado derecho del hero) */
-    .mosaic {
-      position: relative; min-height: 280px; border-left: 1px dashed color-mix(in oklab, var(--gold) 25%, transparent);
-      padding-left: 20px;
-    }
-    .tile {
-      position: absolute; border-radius: 18px; padding: 12px 14px;
-      border: 1px solid color-mix(in oklab, var(--gold) 22%, transparent);
-      background: color-mix(in oklab, var(--bg-soft) 95%, transparent);
-      box-shadow: var(--shadow);
-      animation: float 8s ease-in-out infinite;
-    }
-    .tile h4 { margin: 0 0 6px; font-size: 1rem }
-    .tile p { margin: 0; color: var(--muted); font-size: .95rem }
-    .tile.one { top: 10px; right: 12px; animation-delay: 0s }
-    .tile.two { top: 120px; left: 18px; animation-delay: .6s }
-    .tile.three { bottom: 8px; right: 40px; animation-delay: 1.2s }
-    @keyframes float {
-      0%, 100% { transform: translateY(0) }
-      50% { transform: translateY(-6px) }
-    }
-
-    /* Secciones */
-    section {
-      padding: 44px 0; border-top: 1px solid color-mix(in oklab, var(--gold) 15%, transparent);
-    }
-    .section-title {
-      display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 16px;
-    }
-    .section-title h2 {
-      font-size: clamp(1.6rem, 3.4vw, 2rem); margin: 0;
-    }
-    .section-title .note {
-      color: var(--muted); font-size: .95rem;
-    }
-
-    /* Cards */
-    .grid {
-      display: grid; gap: 18px; grid-template-columns: repeat(12, 1fr);
-    }
-    @media (max-width: 880px) { .grid { grid-template-columns: repeat(6, 1fr) } }
-    @media (max-width: 540px) { .grid { grid-template-columns: repeat(2, 1fr) } }
-
-    .card {
-      grid-column: span 4;
-      border: 1px solid color-mix(in oklab, var(--gold) 22%, transparent);
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, color-mix(in oklab, var(--bg-soft) 95%, transparent), color-mix(in oklab, var(--bg) 96%, transparent));
-      padding: 18px;
-      box-shadow: var(--shadow);
-      transition: transform .15s ease, box-shadow .15s ease;
-    }
-    .card:hover { transform: translateY(-3px); box-shadow: 0 16px 44px rgba(0,0,0,.35) }
-    .card h3 { margin: 4px 0 10px; font-size: 1.15rem }
-    .meta { color: var(--muted); font-size: .9rem; margin-bottom: 10px }
-    .card .actions { display: flex; gap: 12px; margin-top: 8px; flex-wrap: wrap }
+        wtViewRegistry = new ViewRegistry(views, new SessionManager(WikiTreeAPI, loginManager));
+        wtViewRegistry.render();
+    });
+    </script>
+</body>
+</html>x; flex-wrap: wrap }
 
     /* Línea de tiempo */
     .timeline {
