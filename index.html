@@ -1,40 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>WikiTree Tree Viewer</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Aquí podrías enlazar tus estilos -->
-    <link rel="stylesheet" href="styles.css">
-    <!-- jQuery (necesario porque el código usa $) -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Aquí podrías enlazar otros scripts como WikiTreeAPI, LoginManager, etc. -->
-</head>
-<body>
-    <!-- Contenedor para login -->
-    <div id="wt-api-login"></div>
+<!doctype html>
 
-    <!-- Aquí se renderizarán las vistas -->
-    <div id="tree-viewer"></div>
+
+<head>
+    <title>Visualisation déplacement</title> 
+    <meta charset=utf-8>
+    <style id="plotly.js-style-global"></style>
+    <style id="plotly.js-style-modebar-aa6ffc"></style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index_style.css') }}">
 
     <script>
-    /*
-     * index.js convertido a HTML
-     * Este script configura el Login Manager y el View Registry para el árbol.
-     */
+        function displaySab(){
+            console.log("Ca s'exécute")
+            document.getElementById("sablier").style.display = "flex";
+        }
+    </script>
 
-    var wtViewRegistry;
-    window.addEventListener("DOMContentLoaded", (event) => {
-        const loginManager = new LoginManager(
-            WikiTreeAPI,
-            (events = {
-                onLoggedIn: (user) => {
-                    document.querySelector(
-                        "#wt-api-login"
-                    ).innerHTML = `Logged into Apps: ${user.name} (<a class="apiLogout" href="#">Logout</a>)`;
-                },
-                onUnlogged: () => {
-                    document.querySelector("#wt-api-login").innerHTML = `
+</head>
+<body>
+    <div id = "titre_page">
+        <h1>Visualisation des déplacements avant le 20ème siècle</h1>        
+    </div>
+
+    <div id = "interface">
+        <div id = "interface_utilisateur">
+            <section id="selectData">
+                <div id ="DataScrap">
+                    <p id = "titre_scrap">Veuillez saisir le nom ou l'url de la personne choisie</p>
+                    <form id="FormDataScrap" method="post" action=".">
+                        <p>
+                            Nom<input required name="nom" type="text" id="nom" placeholder="Nom">
+                        </p>
+                        <p>
+                            URL<input name="url" type="text" id="url" placeholder="https://www.geneanet.com/...">
+                        </p>
+                        <div id = "button_sab">
+                            <input type="submit" value="Recupérer les données" onclick="displaySab()">
+                            <img id = "sablier" src = "{{ url_for('static', filename='images/sablier.png') }}">
+                        </div>
+                    </form>
+                    
+
+                </div>
+
+                <div id="NavAccesMap">
+                    <p id = "titre_carte">Accès aux cartes déjà créées</p>
+                    <ul id="mapList">
+                        {% for item in subfolders %}
+                            <a  href="/{{ item }}"><li> {{ item }} </li></a>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <div id = "interface_carte">
+            <section>
+                {% if name %}
+                <div id="map">
+                    {% if name in subfolders %}
+                    {% include './map/' + name + '/Map' + name + '.html' %}
+                    {% endif %}
+                </div>
+                {%else %}
+                    <p id = "texte_absence_carte">Veuillez sélectionner une carte à afficher</p>
+                {% endif %}
+
+            </section>
+        </div>
+    </div>
+</body>                    document.querySelector("#wt-api-login").innerHTML = `
               <form id="appsLoginForm" action="https://api.wikitree.com/api.php" method="POST">
                   <input type="hidden" name="action" value="clientLogin">
                   <input type="hidden" id="returnURL" name="returnURL" value="${window.location.href}">
