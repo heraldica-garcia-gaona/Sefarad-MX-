@@ -1,0 +1,113 @@
+Aquí tienes el HTML completo y dinámico, ya con el botón “Ver documental probatorio” integrado en cada persona del árbol genealógico. He dejado enlaces genéricos ("#") para que tú los sustituyas por las URLs reales de tus archivos probatorios (PDFs, páginas web, repositorios, etc.).  
+
+`html
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Árbol Genealógico — Ver mi parentesco</title>
+  <style>
+    :root {
+      --bg: #0d0f14; --panel: #12151d; --accent: #7bd389; --accent2: #61dafb;
+      --text: #e8edf2; --muted: #9aa7b2; --line: #233043; --gold: #efc453;
+      --shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+    html, body { height: 100%; background: var(--bg); color: var(--text); }
+    body { margin: 0; font-family: system-ui, sans-serif; display: grid; place-items: start center; padding: 32px 18px; }
+    .app { width: min(1100px, 100%); display: grid; gap: 20px; }
+    .hero { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); }
+    .hero-header { display: grid; grid-template-columns: 1fr auto; align-items: center; padding: 22px; border-bottom: 1px solid var(--line); }
+    .title { font-weight: 800; font-size: 24px; }
+    .subtitle { color: var(--muted); margin-top: 6px; font-size: 14px; }
+    .controls { display: flex; gap: 10px; }
+    .btn { border: 1px solid var(--line); padding: 8px 12px; border-radius: 8px; cursor: pointer; }
+    .btn.accent { border-color: var(--accent); color: var(--accent); }
+    .badge { font-size: 12px; color: var(--muted); }
+    .patriarchs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 14px; }
+    .card { border: 1px solid var(--line); border-radius: 14px; padding: 14px; }
+    .card h3 { margin: 0; }
+    .crest { margin-top: 8px; font-weight: 700; color: var(--gold); }
+    .tree { margin-top: 22px; display: grid; gap: 12px; }
+    .gen { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+    .gen-header { display: flex; justify-content: space-between; align-items: center; padding: 12px; background: rgba(97,218,251,0.08); }
+    .gen-title { font-weight: 800; color: var(--accent2); }
+    .gen-sub { color: var(--muted); font-size: 13px; }
+    .toggle { border: 1px solid var(--line); padding: 6px 10px; border-radius: 8px; cursor: pointer; }
+    .nodes { display: grid; }
+    .node { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; border-bottom: 1px dashed var(--line); }
+    .who { display: flex; flex-wrap: wrap; gap: 6px 10px; }
+    .name { font-weight: 700; }
+    .lifespan, .fsid { color: var(--muted); font-size: 13px; }
+    .role { font-size: 12px; border: 1px solid var(--line); padding: 4px 8px; border-radius: 999px; color: var(--accent2); }
+    .line-link { font-size: 12px; color: var(--accent2); text-decoration: none; margin-left: 8px; }
+    .footer { font-size: 12px; color: var(--muted); margin: 14px; display: flex; justify-content: space-between; }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <section class="hero">
+      <div class="hero-header">
+        <div>
+          <div class="title">Ver mi parentesco — Línea paterna de Francisco Javier9943</div>
+          <div class="subtitle">Doce generaciones desde Lorenzo García de Abrego Gutiérrez, con patriarcas: Blas de la Garza Falcón y Beatriz González Hidalgo</div>
+        </div>
+        <div class="controls">
+          <button class="btn accent" id="expandAll">Expandir todo</button>
+          <button class="btn" id="collapseAll">Colapsar todo</button>
+          <span class="badge">Dinámico • Responsivo • Probatorio</span>
+        </div>
+      </div>
+      <div class="hero-body">
+        <div class="patriarchs">
+          <div class="card">
+            <h3>Blas de la Garza Falcón</h3>
+            <div class="crest">Patriarca fundador</div>
+          </div>
+          <div class="card">
+            <h3>Beatriz González Hidalgo</h3>
+           Esposa aliada</div>
+          </div>
+        </div>
+        <div class="tree" id="tree"></div>
+        <div class="footer">
+          <div>Presentación digna de la línea paterna</div>
+          <label>Tema:
+            <select id="theme">
+              <option value="dark">Oscuro</option>
+              <option value="light">Claro</option>
+            </select>
+          </label>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+    const data = [
+      { gen: 12, title: "Lorenzo García de Abrego Gutiérrez", nodes: [
+        { name: "Lorenzo García de Abrego Gutiérrez", lifespan: "1630–1669", fsid: "2MAG-CYN", role: "Padre", link: "#", doc: "#" },
+        { name: "Juana de la Garza González", lifespan: "1622–1669", fsid: "G79V-ZYP", role: "Madre", link: "#", doc: "#" }
+      ]},
+      { gen: 11, title: "Joseph Lorenzo García De La...", nodes: [
+        { name: "Joseph Lorenzo García De La...", lifespan: "1656–Fallecido(a)", fsid: "P3WP-1BR", role: "Padre", link: "#", doc: "#" }
+      ]},
+      { gen: 10, title: "Joseph García Morales", nodes: [
+        { name: "Joseph García Morales", lifespan: "1685–1764", fsid: "MGLH-CWD", role: "Padre", link: "#", doc: "#" }
+      ]},
+      { gen: 9, title: "Miguel Joseph García Ramirez", nodes: [
+        { name: "Miguel Joseph García Ramirez", lifespan: "1726–1780", fsid: "UKFJ-KPH", role: "Padre", link: "#", doc: "#" }
+      ]},
+      { gen: 8, title: "Juan Joseph Luis García Ra...", nodes: [
+        { name: "Juan Joseph Luis García Ra...", lifespan: "1752–Fallecido(a)", fsid: "M9JC-6LT", role: "Padre", link: "#", doc: "#" }
+      ]},
+      { gen: 7, title: "José Antonio García Guajardo", nodes: [
+        { name: "José Antonio García Guajardo", lifespan: "1804–1874", fsid: "PVWS-KYY", role: "Padre", link: "#", doc: "#" }
+      ]},
+      { gen: 6, title: "Jesús García Saucedo", nodes: [
+        { name: "Jesús García Saucedo", lifespan: "1819–Fallecido(a)", fsid: "G85P-7M4", role: "Padre", link: "#", doc: "#" }
+      ]},
+      { gen: 5, title: "Jesús García Flores", nodes: [
+        { name: "Jesús García Flores", lifespan: "1850–Fallecido(a)", fsid: "P3HV-8TF", role: "Padre", link: "#", doc: "#" }
+      ]},
+      { gen: 4, title: "Francisco García De La Peña", nodes: [
+        { name: "Francisco García De La Peña", lifespan: "1883–Fallecido(a)", fsid
