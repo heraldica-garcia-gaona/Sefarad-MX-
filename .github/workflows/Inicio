@@ -1,0 +1,164 @@
+            <div class="tile one">
+              <h4>Heráldica y símbolos</h4>
+              <p>Identidad visual con raíces y respeto.</p>
+            </div>
+            <div class="tile two">
+              <h4>Genealogía crítica</h4>
+              <p>Documentación verificable, sin concesiones.</p>
+            </div>
+            <div class="tile three">
+              <h4>Voces y memoria</h4>
+              <p>Testimonios que dignifican la historia.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <section id="mision">
+      <div class="container">
+        <div class="section-title">
+          <h2>Misión</h2>
+          <div class="note">Metodología transparente. Comunidad al centro.</div>
+        </div>
+        <div class="grid">
+          <article class="card" aria-label="Pilar: Documento">
+            <h3>Documento</h3>
+            <div class="meta">Rigor, fuentes y trazabilidad</div>
+            <p>Cada pieza de información se sustenta en evidencias y se enlaza a su contexto. Sin adornos, sin rumores.</p>
+            <div class="actions">
+              <a class="btn" href="#archivo">Ver metodología</a>
+            </div>
+          </article>
+          <article class="card" aria-label="Pilar: Dignidad">
+            <h3>Dignidad</h3>
+            <div class="meta">Forma sobria, fondo humano</div>
+            <p>El cuidado estético refleja respeto: tipografía clara, color contenido y jerarquía precisa para una lectura serena.</p>
+          </article>
+          <article class="card" aria-label="Pilar: Comunidad">
+            <h3>Comunidad</h3>
+            <div class="meta">Escucha activa y participación</div>
+            <p>Abrimos espacios para voces familiares y colectivas, conectando memorias con procesos culturales más amplios.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="proyectos">
+      <div class="container">
+        <div class="section-title">
+          <h2>Proyectos</h2>
+          <div class="note">Ejes de trabajo y avances publicados</div>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <h3>Casa Real — García Gaona</h3>
+            <div class="meta">Heráldica y archivo familiar</div>
+            <p>Diseño heráldico, relatos y documento histórico con una línea clara entre memoria y ficción.</p>
+            <div class="actions">
+              <a class="btn" href="#">Abrir</a>
+              <a class="btn alt" href="#">Acerca del proyecto</a>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Rutas de Sefarad</h3>
+            <div class="meta">Cartografías y migraciones</div>
+            <p>Mapas interpretativos de trayectorias familiares y comunidades, con notas de fuentes y contexto internacional.</p>
+            <div class="actions">
+              <a class="btn" href="#">Abrir</a>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Voces y testigos</h3>
+            <div class="meta">Colección de testimonios</div>
+            <p>Entrevistas curadas con consentimiento informado, preservadas con estándares éticos y técnicos.</p>
+            <div class="actions">
+              <a class="btn" href="#">Abrir</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="archivo">
+      <div class="container">
+        <div class="section-title">
+          <h2>Archivo vivo</h2>
+          <div class="note">Actualizaciones y hitos</div>
+        </div>
+        <div class="timeline" aria-label="Línea de tiempo de actualizaciones">
+          <div class="event">
+            <strong>Dic 2025:</strong> Publicación de la página inicial con tipografía accesible y paleta sobria en dorado y azul.
+          </div>
+          <div class="event">
+            <strong>Nov 2025:</strong> Estructura de proyectos y metodología publicada con rutas claras para colaboraciones.
+          </div>
+          <div class="event">
+            <strong>Oct 2025:</strong> Integración de heráldica preliminar y glosario de términos.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contacto</h2>
+          <div class="note">Puentes para colaborar con rigor</div>
+        </div>
+        <div class="grid">
+          <article class="card" style="grid-column: span 6;">
+            <h3>Colaboraciones</h3>
+            <p>¿Tienes documentos, relatos o preguntas? Escríbenos y cuidamos cada detalle con seriedad y respeto.</p>
+            <div class="actions">
+              <a class="btn" href="mailto:contacto@sefarad.mx">contacto@sefarad.mx</a>
+              <a class="btn alt" href="#">Directrices editoriales</a>
+            </div>
+          </article>
+          <article class="card" style="grid-column: span 6;">
+            <h3>Transparencia</h3>
+            <p>Publicamos cambios y criterios editoriales en un registro abierto. Sin ambigüedades, sin especulación.</p>
+            <div class="actions">
+              <a class="btn" href="#">Registro de cambios</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="brand">
+          <span class="mark" aria-hidden="true"></span>
+          <strong>Sefarad MX</strong>
+        </div>
+        <p class="small" style="margin-top:10px;">
+          Plataforma independiente dedicada a la memoria sefardí en México.
+          Diseño y contenido con criterios de accesibilidad, trazabilidad y dignidad.
+        </p>
+      </div>
+      <div class="small">
+        <p>© <span id="year"></span> Sefarad MX. Todos los derechos reservados.</p>
+        <p>GitHub Pages • Licencia de contenido según cada documento.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Año en footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mejora de foco al navegar por anclas
+    const smoothFocus = (e) => {
+      if (e.target.matches('a[href^="#"]')) {
+        const id = e.target.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if (el) setTimeout(() => el.setAttribute('tabindex','-1'), 120);
+      }
+    };
+    document.addEventListener('click', smoothFocus);
+  </script>
+</body>
+</html>
