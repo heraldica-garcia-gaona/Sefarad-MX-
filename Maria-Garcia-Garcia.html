@@ -3,38 +3,236 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Archivo Genealógico — María García García</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>Archivo genealógico completo — Rama García Rodríguez</title>
+  <meta name="description" content="Documento genealógico institucional, completo e impactante, sobre la rama García Rodríguez y su conexión con García De La Peña y García Castilleja." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin:0; font-family:Inter, sans-serif; background:#f5f6fa; color:#333;
+    :root{
+      --bg:#0e1117; --bg-soft:#121621; --card:#161b29;
+      --accent:#e3b04b; --accent-2:#8fd3f4; --text:#eef2f7; --muted:#b7c1ce;
+      --border:rgba(255,255,255,0.08);
     }
-    header {
-      background:linear-gradient(135deg,#2c3e50,#34495e);
-      color:#fff; padding:60px 30px; text-align:center;
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text)}
+    body{font-family:Inter, system-ui, Segoe UI, Roboto, sans-serif;line-height:1.7}
+    a{color:var(--accent-2);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1200px;margin:0 auto;padding:34px}
+    /* HERO */
+    header.hero{
+      position:relative; border:1px solid var(--border); border-radius:28px; overflow:hidden;
+      padding:88px 34px; background:
+        radial-gradient(1000px 560px at 8% -10%, rgba(143,211,244,.16), transparent 60%),
+        radial-gradient(900px 520px at 95% -5%, rgba(227,176,75,.15), transparent 60%),
+        linear-gradient(180deg,#131828,#0f131a 40%, #0d1116);
+      box-shadow:0 10px 40px rgba(0,0,0,.45);
     }
-    header h1 {
-      font-family:"Playfair Display", serif; font-size:48px; margin:0;
+    .title{
+      font-family:"Playfair Display", serif; font-weight:700; letter-spacing:.4px;
+      font-size:clamp(36px,4.8vw,64px); margin:0 0 14px;
+      background:linear-gradient(90deg,#fff, #e9edf5 40%, #e3b04b 85%);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
     }
-    header p {
-      font-size:18px; max-width:800px; margin:20px auto;
+    .subtitle{font-size:clamp(16px,2.2vw,19px);color:var(--muted);max-width:900px}
+    .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    .tag{
+      padding:8px 12px; border-radius:999px; border:1px solid var(--border);
+      background:linear-gradient(180deg,#1d2333,#161c2a); color:#e6ebf5; font-weight:600; font-size:13px
     }
-    section {
-      padding:40px 30px; max-width:1200px; margin:auto;
+    /* SECTIONS */
+    section{margin:30px 0}
+    .grid{display:grid; gap:18px; grid-template-columns:repeat(12,1fr)}
+    .card{
+      background:linear-gradient(180deg,#1a2030,#161c2a);
+      border:1px solid var(--border); border-radius:22px; padding:22px;
+      box-shadow:0 6px 22px rgba(0,0,0,.35)
     }
-    h2 {
-      font-family:"Playfair Display", serif; font-size:28px; margin-bottom:20px; color:#2c3e50;
+    .card h2{font-family:"Playfair Display", serif; font-size:26px; margin:0 0 12px}
+    .card h3{font-size:18px; margin:0 0 6px; color:#e9eef8}
+    .field{margin:10px 0}
+    .label{color:#97a5b9; font-size:13px; margin-bottom:3px}
+    .value{font-weight:700}
+    .meta{display:flex;gap:14px;flex-wrap:wrap;margin-top:6px}
+    .meta-item{padding:10px 12px; border:1px solid var(--border); border-radius:12px; background:#131927; font-size:14px}
+    /* TIMELINE */
+    .timeline{position:relative;padding-left:28px;margin:6px 0}
+    .timeline::before{content:"";position:absolute;left:10px;top:0;bottom:0;width:2px;background:#283045;border-radius:2px}
+    .tl-item{position:relative;margin:16px 0;padding-left:10px}
+    .tl-item::before{
+      content:"";position:absolute;left:-4px;top:6px;width:10px;height:10px;border-radius:50%;
+      background:radial-gradient(circle at 35% 35%, #fff 0%, #e3b04b 40%, #8a6a2b 100%);
+      box-shadow:0 0 0 4px rgba(227,176,75,0.15)
     }
-    .card {
-      background:#fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
-      padding:20px; margin-bottom:20px;
+    .tl-title{font-weight:800}
+    .tl-note{color:#a7b3c7;font-size:14px;margin-top:4px}
+    /* TABLE */
+    table{width:100%;border-collapse:collapse;overflow:hidden;border-radius:14px;margin-top:10px}
+    thead th{background:#20263a;color:#e9eef8;font-weight:700;text-align:left;padding:12px;border-bottom:1px solid var(--border)}
+    tbody td{padding:12px;border-bottom:1px solid var(--border);color:#dfe6f2}
+    tbody tr:hover td{background:#182034}
+    /* CALLOUT */
+    .callout{
+      display:flex;gap:14px;align-items:flex-start;background:linear-gradient(180deg,#21283a,#1b2236);
+      border:1px solid var(--border); border-radius:16px; padding:16px
     }
-    .timeline {
-      position:relative; margin:20px 0; padding-left:40px;
-    }
-    .timeline::before {
-      content:""; position:absolute; left:20px; top:0; bottom:0; width:4px; background:#e3b04b;
-    }
+    .dot{width:36px;height:36px;border-radius:10px;background:radial-gradient(circle,#e3b04b 0%, #8a6a2b 100%);box-shadow:0 8px 28px rgba(227,176,75,.35)}
+    .callout h3{margin:2px 0 6px;font-size:18px}
+    .callout p{margin:0;color:#c9d2df}
+    /* FOOTER */
+    footer{margin:42px 0 16px;color:#98a6bb;text-align:center}
+    @media (max-width:980px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="hero" role="banner" aria-label="Encabezado genealógico">
+      <h1 class="title">Rama García Rodríguez</h1>
+      <p class="subtitle">
+        Documento genealógico completo e institucional. Conexiones entre Rodríguez García, García De La Peña y García Castilleja;
+        origen compartido en General Cepeda y Plazuela Sal; continuidad hacia Chile. Diseño impactante, sin saturar con dígitos o signos.
+      </p>
+      <div class="tags" aria-label="Etiquetas">
+        <span class="tag">Origen compartido</span>
+        <span class="tag">Descendencia legítima</span>
+        <span class="tag">García Rodríguez</span>
+        <span class="tag">García De La Peña</span>
+        <span class="tag">García Castilleja</span>
+      </div>
+    </header>
+
+    <section aria-labelledby="patriarcas">
+      <div class="grid">
+        <article class="card" style="grid-column: span 12">
+          <h2 id="patriarcas">Patriarcas y orígenes</h2>
+          <div class="grid" style="margin-top:8px">
+            <div class="card" style="grid-column: span 6; background:#182034">
+              <h3>Antonio García de la Peña</h3>
+              <div class="field"><div class="label">Nacimiento</div><div class="value">Huachichil, General Cepeda, Coahuila</div></div>
+              <div class="field"><div class="label">Defunción</div><div class="value">Saltillo, Coahuila (17 de junio de 1963)</div></div>
+              <div class="field"><div class="label">Padres</div><div class="value">Jesús García Flores • Jacoba de la Peña Saucedo</div></div>
+              <div class="field"><div class="label">Contexto</div><div class="value">Raíz familiar en General Cepeda y Plazuela Sal</div></div>
+            </div>
+            <div class="card" style="grid-column: span 6; background:#182034">
+              <h3>Albina Rodríguez</h3>
+              <div class="field"><div class="label">Origen</div><div class="value">Saltillo, Coahuila • Bautismo en Venado, San Luis Potosí</div></div>
+              <div class="field"><div class="label">Padres</div><div class="value">Julián Rodríguez Castillo • María García García</div></div>
+              <div class="field"><div class="label">Vínculo</div><div class="value">Consolidación de la rama García Rodríguez</div></div>
+            </div>
+          </div>
+          <div class="callout" style="margin-top:14px">
+            <div class="dot" aria-hidden="true"></div>
+            <div>
+              <h3>Origen compartido</h3>
+              <p>Antonio y su hermano Francisco García de la Peña provienen de la misma raíz en General Cepeda y Plazuela Sal, base que conecta con García Castilleja.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="cronologia">
+      <div class="grid">
+        <article class="card" style="grid-column: span 12">
+          <h2 id="cronologia">Cronología familiar</h2>
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-title">Matrimonio de María García García y Julián Rodríguez</div>
+              <div class="tl-note">Origen de la rama Rodríguez García.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-title">Fallecimiento de Julián Rodríguez</div>
+              <div class="tl-note">María queda viuda; los hijos serán hijastros en registros posteriores.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-title">Unión de Albina Rodríguez y Antonio García de la Peña</div>
+              <div class="tl-note">Nace la rama García Rodríguez, integrando Rodríguez García con García de la Peña.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-title">Consolidación en General Cepeda y proyección</div>
+              <div class="tl-note">Continuidad desde Plazuela Sal y conexiones hacia la línea García Castilleja y Chile.</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="descendencia">
+      <div class="grid">
+        <article class="card" style="grid-column: span 12">
+          <h2 id="descendencia">Descendencia</h2>
+          <div class="grid">
+            <div class="card" style="grid-column: span 4; background:#182034">
+              <h3>Antonio García Rodríguez</h3>
+              <div class="field"><div class="label">Origen</div><div class="value">Huachichil, Coahuila</div></div>
+              <div class="field"><div class="label">Matrimonio</div><div class="value">Con Guillermina Díaz</div></div>
+              <div class="field"><div class="label">Filiación</div><div class="value">Hijo de Antonio García de la Peña y Albina Rodríguez</div></div>
+            </div>
+            <div class="card" style="grid-column: span 4; background:#182034">
+              <h3>Manuel García Rodríguez</h3>
+              <div class="field"><div class="label">Origen</div><div class="value">Huachichil, Coahuila</div></div>
+              <div class="field"><div class="label">Matrimonio</div><div class="value">Con Manuela Vielma Serrato (15 de febrero de 1950, General Cepeda)</div></div>
+              <div class="field"><div class="label">Memoria</div><div class="value">Abuelo materno; padre de Hermelinda García Vielma</div></div>
+            </div>
+            <div class="card" style="grid-column: span 4; background:#182034">
+              <h3>Andrés García Rodríguez</h3>
+              <div class="field"><div class="label">Vida</div><div class="value">Falleció joven (entre 9 y 12 años)</div></div>
+              <div class="field"><div class="label">Notas</div><div class="value">Consignado en registros familiares</div></div>
+            </div>
+          </div>
+          <div class="callout" style="margin-top:14px">
+            <div class="dot" aria-hidden="true"></div>
+            <div>
+              <h3>Transparencia</h3>
+              <p>Se incluyen hijos con datos completos y aquellos con información parcial, para evitar omisiones y sostener la legitimidad de la descendencia.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="conexion">
+      <div class="grid">
+        <article class="card" style="grid-column: span 12">
+          <h2 id="conexion">Conexión con García Castilleja</h2>
+          <p>
+            La unión de <strong>Albina Rodríguez</strong> y <strong>Antonio García de la Peña</strong> enlaza directamente la rama
+            <strong>García Rodríguez</strong> con <strong>García Castilleja</strong>. Los patriarcas <strong>Antonio</strong> y <strong>Francisco García de la Peña</strong>
+            comparten raíz en <strong>General Cepeda</strong> y <strong>Plazuela Sal</strong>. La diferencia es que <strong>García Castilleja</strong> sigue una línea
+            distinta, no directa del estirpe principal, mientras que <strong>García Rodríguez</strong> nace de una unión legítima y documentada.
+          </p>
+          <div class="callout" style="margin-top:12px">
+            <div class="dot" aria-hidden="true"></div>
+            <div>
+              <h3>Conclusión institucional</h3>
+              <p>Estas ramas —les guste o no— vienen de donde mismo, comparten origen y memoria, y cada una desarrolló su apellido compuesto y su identidad particular.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="continuidad">
+      <div class="grid">
+        <article class="card" style="grid-column: span 12">
+          <h2 id="continuidad">Continuidad genealógica y proyección</h2>
+          <p>
+            Se ha leído y confirmado que la descendencia legítima de la unión entre <strong>Antonio García de la Peña</strong> y
+            <strong>Albina Rodríguez</strong> se proyecta desde la <strong>Plazuela Sal</strong>, enlazando con los <strong>García Castilleja</strong>, y
+            extendiéndose hasta <strong>Chile</strong> como parte de los originales. Esta continuidad demuestra que la rama <strong>García Rodríguez</strong>
+            es tronco legítimo y con reconocimiento en México y el extranjero.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      Archivo genealógico preparado para publicación institucional. Tipografías: Playfair Display e Inter. Paleta nocturna con acentos dorados. Responsive y accesible.
+    </footer>
+  </div>
+</body>
+</html>    }
     .event {
       position:relative; margin-bottom:20px;
     }
