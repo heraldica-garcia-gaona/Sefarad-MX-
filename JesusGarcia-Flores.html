@@ -3,226 +3,282 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jesús García Flores - Estirpe Sefardí</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Registro de Grupo Familiar - Jesus García Flores y Jacoba De La Peña Saucedo</title>
     <style>
-        /* Variables y Estilos Generales */
-        :root {
-            --color-primario: #5D4037; /* Café Oscuro / Tierra */
-            --color-secundario: #FFD700; /* Dorado Sefardí */
-            --color-fondo: #fbfbfb; /* Fondo Ligeramente Cremoso */
-            --color-texto: #333;
-            --fuente-titulo: 'Playfair Display', serif;
-            --fuente-cuerpo: 'Roboto', sans-serif;
-        }
-
-        body {
-            font-family: var(--fuente-cuerpo);
-            color: var(--color-texto);
-            margin: 0;
-            padding: 0;
-            background-color: var(--color-fondo);
-            line-height: 1.6;
-        }
-
-        header {
-            background-color: var(--color-primario);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        header h1 {
-            font-family: var(--fuente-titulo);
-            font-size: 2.8rem;
-            margin: 0;
-        }
-        header p {
-            font-weight: 300;
-        }
-
-        /* Contenedor Principal */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem;
-        }
-
-        /* Secciones */
-        section {
-            background-color: white;
-            padding: 2rem;
-            margin-top: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        section h2 {
-            font-family: var(--fuente-titulo);
-            color: var(--color-primario);
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-            border-bottom: 3px solid var(--color-secundario);
-            padding-bottom: 0.5rem;
-            text-align: center;
-        }
-
-        /* Estilo Biografía */
-        .bio-info strong {
-            color: var(--color-primario);
-            font-weight: 700;
-        }
-        .bio-info ul {
-            list-style: none;
-            padding: 0;
-        }
-        .bio-info li {
-            background: #f0f0f0;
-            margin-bottom: 0.5rem;
-            padding: 0.75rem;
-            border-left: 5px solid var(--color-secundario);
-        }
-
-        /* Estilo Descendencia */
-        .descendencia {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        .descendiente-card {
-            border: 1px solid #ccc;
-            padding: 1rem;
-            border-radius: 8px;
-            text-align: center;
-            background-color: #fff8e1; /* Fondo suave */
-        }
-        .descendiente-card h3 {
-            color: var(--color-secundario);
-            font-family: var(--fuente-titulo);
-            margin-top: 0;
-        }
-
-        /* Estilo Botón y Documentos */
-        .documentos {
-            text-align: center;
-            background-color: var(--color-primario);
-            color: white;
-        }
-
-        .documentos h2 {
-            color: white;
-            border-bottom: 3px solid var(--color-secundario);
-        }
-
-        .btn-link {
-            display: inline-block;
-            background-color: var(--color-secundario);
-            color: var(--color-primario);
-            padding: 1rem 2rem;
-            margin: 1.5rem 0;
-            text-decoration: none;
-            border-radius: 50px; /* Forma de píldora para impacto */
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: background-color 0.3s, transform 0.2s;
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .btn-link:hover {
-            background-color: #E2C044;
-            transform: scale(1.05);
-        }
-
-        /* Impacto Sefardí */
-        .sefardi-historia {
-            background-color: #fffaf0; /* Color pergamino */
-            border-left: 5px solid var(--color-secundario);
-        }
-        
-        /* Responsive Design (Versión Móvil) */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2rem;
-            }
-            section {
-                padding: 1rem;
-                margin-top: 1rem;
-            }
-            section h2 {
-                font-size: 1.5rem;
-            }
-            .btn-link {
-                width: 90%;
-                display: block;
-                margin: 1rem auto;
-            }
-        }
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f9f9f9; color: #333; }
+        table { border-collapse: collapse; width: 100%; margin-bottom: 30px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .header { text-align: center; font-size: 1.2em; font-weight: bold; }
+        .subheader { font-weight: bold; }
+        .gender { text-align: center; }
     </style>
 </head>
 <body>
+    <h1 class="header">Registro de Grupo Familiar</h1>
+    <p>Número de Registro de grupo familiar: —</p>
+    <p>Página 1 de 31</p>
 
-    <header>
-        <h1>Jesús García Flores</h1>
-        <p>Un pilar en la Historia y Estirpe Sefardí de Coahuila</p>
-    </header>
+    <table>
+        <tr>
+            <th colspan="2">Esposo</th>
+            <th colspan="2">Esposa</th>
+        </tr>
+        <tr>
+            <td>Jesus García Flores (P3HV-BTF)</td>
+            <td></td>
+            <td>Jacoba De La Peña Saucedo (K2JY-7ZQ)</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Fecha de nacimiento</td>
+            <td>1850</td>
+            <td>Fecha de nacimiento</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Lugar de nacimiento</td>
+            <td></td>
+            <td>Lugar de nacimiento</td>
+            <td>Huachichil, General Cepeda, Coahuila, Mexico</td>
+        </tr>
+        <tr>
+            <td>Fecha del bautismo infantil</td>
+            <td>22 de marzo de 1851</td>
+            <td>Fecha del bautismo infantil</td>
+            <td>1866</td>
+        </tr>
+        <tr>
+            <td>Lugar del bautismo infantil</td>
+            <td>Sagrario Metropolitano, Saltillo, Coahuila, Mexico</td>
+            <td>Lugar del bautismo infantil</td>
+            <td>General Cepeda, Coahuila, México</td>
+        </tr>
+        <tr>
+            <td>Fecha de matrimonio</td>
+            <td></td>
+            <td>Fecha de matrimonio</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Lugar de matrimonio</td>
+            <td></td>
+            <td>Lugar de matrimonio</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Fecha de defunción</td>
+            <td></td>
+            <td>Fecha de defunción</td>
+            <td>1931</td>
+        </tr>
+        <tr>
+            <td>Lugar de defunción</td>
+            <td></td>
+            <td>Lugar de defunción</td>
+            <td>General Cepeda, Coahuila, México</td>
+        </tr>
+        <tr>
+            <td>Fecha de entierro</td>
+            <td></td>
+            <td>Fecha de entierro</td>
+            <td>21 de febrero de 1931</td>
+        </tr>
+        <tr>
+            <td>Lugar de entierro</td>
+            <td></td>
+            <td>Lugar de entierro</td>
+            <td>Saltillo, Coahuila, México</td>
+        </tr>
+        <tr>
+            <td>Padre del esposo</td>
+            <td>Jesus García Saucedo (G85P-7M4) - Fallecido</td>
+            <td>Padre de la esposa</td>
+            <td>José Praxedis de La Peña García (L4JL-5T4) - Fallecido</td>
+        </tr>
+        <tr>
+            <td>Madre del esposo</td>
+            <td>Rosalía Flores Mireles (G85P-9C5) - Fallecido</td>
+            <td>Madre de la esposa</td>
+            <td>Juana Saucedo (P3HK-8ZM) - Fallecido</td>
+        </tr>
+        <tr>
+            <td>Otros padres y otros cónyuges</td>
+            <td>Otros padres: Rancais Peña (PWYF-54D), Fallecida (Biológico) y (UNKNOWN), Fallecidas (Biológico). Jesus García Saucedo (G85P-7M4), 1819-Fallecido (Biológico) y (UNKNOWN), Fallecidas (Biológico).</td>
+            <td>Otros padres y otros cónyuges</td>
+            <td>Otros cónyuges: Jesús García Flores (PW6W-7JC), Fallecido (Matrimonio). Otros padres: Juana Saucedo (P3HK-8ZM), Fallecida (Biológico) y (UNKNOWN), Fallecidas (Biológico).</td>
+        </tr>
+    </table>
 
-    <div class="container">
-        
-        <section class="sefardi-historia">
-            <h2>El Legado Inquebrantable de Sefarad-MX</h2>
-            <p>La historia de **Jesús García Flores** se enraíza profundamente en la tradición de las familias del Noreste de México, donde el silencio y la persistencia fueron claves de supervivencia tras la Inquisición. Esta línea genealógica no solo documenta un apellido, sino el valor de un legado que, generación tras generación, mantuvo viva la llama de su identidad en la tierra de Coahuila.</p>
-            <p>Jesús García Flores representa el eslabón donde la historia sefardí-criptojudía se consolida en la identidad mexicana, un punto de partida para desvelar el pasado y honrar la resiliencia familiar.</p>
-        </section>
+    <h2 class="header">Hijos</h2>
+    <table>
+        <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Género</th>
+            <th>Fecha de nacimiento</th>
+            <th>Lugar de nacimiento</th>
+            <th>Fecha del bautismo infantil</th>
+            <th>Lugar del bautismo infantil</th>
+            <th>Fecha de matrimonio</th>
+            <th>Lugar de matrimonio</th>
+            <th>Cónyuge</th>
+            <th>Fecha de defunción</th>
+            <th>Lugar de defunción</th>
+            <th>Otros padres y otros cónyuges</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Amador García de la Peña (KKS8-5DR)</td>
+            <td>Masculino</td>
+            <td>22 de abril de 1882</td>
+            <td>Huachichil, General Cepeda, Coahuila</td>
+            <td>5 de marzo de 1882</td>
+            <td>General Cepeda, Coahuila, Mexico</td>
+            <td></td>
+            <td></td>
+            <td>María del Carmen Zamora C (P3WD-JMH)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Francisco García De La Peña (P7LC-66L)</td>
+            <td>Masculino</td>
+            <td></td>
+            <td>General Cepeda, Coahuila, México</td>
+            <td>20 de diciembre de 1883</td>
+            <td>San Francisco de Asís, General Cepeda, Coahuila, Mexico</td>
+            <td></td>
+            <td></td>
+            <td>María García García (P7LC-PX3)</td>
+            <td></td>
+            <td>General Cepeda Coahuila</td>
+            <td>Otros padres: Jesus García Flores (P3HV-BTF), 1850-Fallecido (Biológico) y (UNKNOWN), Fallecidas (Biológico).</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Emilio García de la Peña (LR1S-V43)</td>
+            <td>Masculino</td>
+            <td>22 de mayo de 1889</td>
+            <td>Huachichil, Gral Cepeda, Coahuila, México</td>
+            <td>17 de septiembre de 1887</td>
+            <td>General Cepeda, Coahuila, México</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>General Cepeda, Coahuila, México</td>
+            <td>Otros padres: Jesus García Flores (P3HV-BTF), 1850-Fallecido (Biológico) y (UNKNOWN), Fallecidas (Biológico).</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Herminia García de la Peña (GKJQ-HKF)</td>
+            <td>Femenino</td>
+            <td>25 de mayo de 1888</td>
+            <td>Huachichil, General Cepeda</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>22 de noviembre de 1956</td>
+            <td>Huachichil, General Cepeda, Coahuila</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Maria Concepción García de la Peña (LDFD-Y2J)</td>
+            <td>Femenino</td>
+            <td>1 de febrero de 1896</td>
+            <td>General Cepeda, Coahuila, México</td>
+            <td>1 de mayo de 1896</td>
+            <td>General Cepeda, Coahuila, México</td>
+            <td></td>
+            <td>Saltillo</td>
+            <td>José Angel Torres (PSWW-KWJ)</td>
+            <td>11 de noviembre de 1953</td>
+            <td>Saltillo, Coahuila, México</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Jesus García De La Peña (P3HK-8Y1)</td>
+            <td>Masculino</td>
+            <td>1896</td>
+            <td></td>
+            <td>25 de diciembre de 1890</td>
+            <td>San Francisco de Asis, General Cepeda, Coahuila, Mexico</td>
+            <td></td>
+            <td>San Antonio, México</td>
+            <td>Felipa Torres Chaves (KGC5-PV2)</td>
+            <td></td>
+            <td>Saltillo</td>
+            <td>Otros padres: Jesus García Flores (P3HV-BTF), 1850-Fallecido (Biológico) y (UNKNOWN), Fallecidas (Biológico).</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>Antonio García de la Peña (K2JY-WVF)</td>
+            <td>Masculino</td>
+            <td>25 de marzo de 1899</td>
+            <td>Huachichil, General Cepeda, Coahuila, México</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Albina Rodríguez (P32C-LZL)</td>
+            <td>17 de junio de 1963</td>
+            <td>Saltillo, Coahuila, Mexico</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>Maria Luz (P94R-DSx)</td>
+            <td>Femenino</td>
+            <td>1883</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>General Cepeda, México</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>Sixta Josefa García de la Piña (P37D-3YL)</td>
+            <td>Femenino</td>
+            <td>1926</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Gral Cepeda</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>Mariano Garcia De La Peña (GYGT-X5Q)</td>
+            <td>Masculino</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
 
-        <section>
-            <h2>Biografía: Jesús García Flores (P3HV-BTF)</h2>
-            <p>Jesús García Flores fue el progenitor cuya vida e historia se encuentran documentadas en los archivos de Coahuila, sentando las bases de una gran descendencia.</p>
-            
-            <div class="bio-info">
-                <ul>
-                    <li><strong>Padres:</strong> Jesús fue hijo de **Jesus Garcia Saucedo (G85P-7M4)** y **Rosalia Flores Mireles (G85P-9C5)**.</li>
-                    <li><strong>Nacimiento Estimado:</strong> Nació alrededor del año **1850**.</li>
-                    <li><strong>Bautismo:</strong> Su bautismo infantil se registró el **22 de marzo de 1851** en el **Sagrario Metropolitano, Saltillo, Coahuila, México**.</li>
-                    <li><strong>Cónyuge:</strong> Su esposa fue **Jacoba De La Peña Saucedo (K2JY-7ZQ)**, originaria de **Huachichil, General Cepeda, Coahuila**.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section>
-            <h2>Descendencia: Hijos e Hijos</h2>
-            <p>Jesús García Flores y Jacoba De La Peña Saucedo continuaron el linaje García en Coahuila. La documentación confirma al menos los siguientes hijos:</p>
-            
-            <div class="descendencia">
-                <div class="descendiente-card">
-                    <h3>Francisco García De La Peña</h3>
-                    <p>Hijo cuya biografía está ligada al mismo origen de General Cepeda. Figura central en la continuidad de la familia.</p>
-                </div>
-                <div class="descendiente-card">
-                    <h3>Sixta Josefa García de la Piña</h3>
-                    <p>Hija cuyo registro de familia también se encuentra citado en la documentación histórica de la estirpe.</p>
-                </div>
-                <div class="descendiente-card">
-                    <h3>Otros Descendientes</h3>
-                    <p>La continuidad de la estirpe García en Coahuila sigue siendo objeto de investigación en el resto de los registros familiares.</p>
-                </div>
-            </div>
-        </section>
-
-
-        <section class="documentos">
-            <h2>Documentación Oficial</h2>
-            <p>Acceda directamente al Acta de Bautismo de Jesús García Flores y otras fuentes primarias que validan este linaje:</p>
-            
-            <a href="PDF/Jose de Jesus Garcia Flores, -México bautismos, 1560-1950- (1).pdf" class="btn-link" target="_blank">
-                Ver Acta de Bautismo y Documentos de Origen
-            </a>
-            <p style="font-size: 0.9rem;">(Archivo: Jose de Jesus Garcia Flores, -México bautismos, 1560-1950- (1).pdf)</p>
-        </section>
-
-    </div>
-
+    <p>Publicado por La Iglesia de Jesucristo de los Santos de los Últimos Días<br>© 2006, 2013 por Intellectual Reserve, Inc. todos los derechos reservados. 10/12<br>Impreso 6 de diciembre de 2025</p>
 </body>
-</html>
+    </html>
