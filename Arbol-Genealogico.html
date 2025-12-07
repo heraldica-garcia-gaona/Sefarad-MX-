@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Árbol Genealógico - 15 Generaciones</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background-color: #fff;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        input[type="text"] {
+            width: 90%;
+            padding: 5px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .generacion-actual {
+            background-color: #ffe0b2 !important; /* Resalta la generación del visitante */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🌳 Árbol Genealógico - 15 Generaciones 🌳</h1>
+    <p style="text-align: center;">Introduce la información de tus ancestros, hasta la 15ª generación. ¡Una sola persona en la 15ª generación tiene **16,384** posibles padres!</p>
+    
+    <form id="genealogiaForm">
+        <table>
+            <thead>
+                <tr>
+                    <th>Generación</th>
+                    <th>Nombre (Sujeto Principal)</th>
+                    <th>Padre</th>
+                    <th>Madre</th>
+                </tr>
+            </thead>
+            <tbody id="genealogiaCuerpo">
+                <tr class="generacion-actual">
+                    <td>**Gen. 1**</td>
+                    <td><input type="text" name="gen1_sujeto" placeholder="Tú"></td>
+                    <td><input type="text" name="gen1_padre" placeholder="Tu Padre (Gen. 2)"></td>
+                    <td><input type="text" name="gen1_madre" placeholder="Tu Madre (Gen. 2)"></td>
+                </tr>
+                <tr>
+                    <td>**Gen. 3**</td>
+                    <td><input type="text" name="gen3_sujeto" placeholder="Abuelo Paterno"></td>
+                    <td><input type="text" name="gen3_padre" placeholder="Bisabuelo Paterno (Gen. 4)"></td>
+                    <td><input type="text" name="gen3_madre" placeholder="Bisabuela Paterna (Gen. 4)"></td>
+                </tr>
+                <tr>
+                    <td>**Gen. 3**</td>
+                    <td><input type="text" name="gen3_sujeto_2" placeholder="Abuela Paterna"></td>
+                    <td><input type="text" name="gen3_padre_2" placeholder="Bisabuelo Paterno (Gen. 4)"></td>
+                    <td><input type="text" name="gen3_madre_2" placeholder="Bisabuela Paterna (Gen. 4)"></td>
+                </tr>
+                <tr>
+                    <td>**Gen. 3**</td>
+                    <td><input type="text" name="gen3_sujeto_3" placeholder="Abuelo Materno"></td>
+                    <td><input type="text" name="gen3_padre_3" placeholder="Bisabuelo Materno (Gen. 4)"></td>
+                    <td><input type="text" name="gen3_madre_3" placeholder="Bisabuela Materna (Gen. 4)"></td>
+                </tr>
+                <tr>
+                    <td>**Gen. 3**</td>
+                    <td><input type="text" name="gen3_sujeto_4" placeholder="Abuela Materna"></td>
+                    <td><input type="text" name="gen3_padre_4" placeholder="Bisabuelo Materno (Gen. 4)"></td>
+                    <td><input type="text" name="gen3_madre_4" placeholder="Bisabuela Materna (Gen. 4)"></td>
+                </tr>
+                </tbody>
+        </table>
+        <div style="text-align: center; margin-top: 20px;">
+            <button type="submit" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">Guardar Información (Simulado)</button>
+        </div>
+    </form>
+
+    <script>
+        // Función para generar las filas de las generaciones 4 a 15
+        function generarFilasRestantes() {
+            const tbody = document.getElementById('genealogiaCuerpo');
+            
+            // Generamos las filas desde la Generación 4 hasta la Generación 15
+            // NOTA: Para simplificar el formulario, solo estamos pidiendo información
+            // para una línea ancestral principal por generación (el ancestro paterno del padre).
+            // Un formulario completo de 15 generaciones necesitaría 32,767 campos!
+            for (let gen = 4; gen <= 15; gen++) {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>**Gen. ${gen}**</td>
+                    <td><input type="text" name="gen${gen}_sujeto" placeholder="Anc. Prin. Gen ${gen}"></td>
+                    <td><input type="text" name="gen${gen}_padre" placeholder="Anc. Gen ${gen+1}"></td>
+                    <td><input type="text" name="gen${gen}_madre" placeholder="Anc. Gen ${gen+1}"></td>
+                `;
+                tbody.appendChild(tr);
+            }
+        }
+
+        // Ejecutar la función cuando la página cargue
+        generarFilasRestantes();
+    </script>
+
+</body>
+</html>
