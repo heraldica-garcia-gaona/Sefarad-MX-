@@ -1,44 +1,338 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sefarad MX — Inicio</title>
-  <style>
-    body { font-family: "Inter", sans-serif; margin:0; background:#0b0f14; color:#eae7df; }
-    header { background:#111; padding:10px; position:sticky; top:0; }
-    nav a { color:#d4af37; margin:0 10px; text-decoration:none; font-weight:bold; }
-    nav a:hover { text-decoration:underline; }
-    main { padding:40px; }
-    h1 { font-size:2.5rem; color:#d4af37; }
-    .btn { display:inline-block; margin:10px 0; padding:10px 16px; border:1px solid #d4af37; border-radius:8px; color:#eae7df; }
-    .btn:hover { background:#d4af37; color:#0b0f14; }
-    footer { background:#111; color:#aaa; text-align:center; padding:20px; margin-top:40px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sefarad-MX: Árbol Genealógico Sefardí en México</title>
+    <link href="https://fonts.googleapis.com/css2?family=Elegant+Serif&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset y Estilos Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header: Diseño Impactante con Imagen Hero */
+        header {
+            position: relative;
+            height: 100vh;
+            background: url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        header .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+        header h1 {
+            font-family: 'Elegant Serif', serif;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        header p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #8B4513, #D2691E);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Navegación */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #8B4513;
+        }
+
+        /* Sección Principal: Árbol Genealógico (Simulado con WikiTree-style) */
+        section {
+            padding: 80px 0;
+        }
+        .intro {
+            background: white;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            margin: 40px 0;
+            padding: 60px 40px;
+        }
+        .intro h2 {
+            font-family: 'Elegant Serif', serif;
+            font-size: 2.5rem;
+            color: #8B4513;
+            margin-bottom: 1rem;
+        }
+        .intro p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Galería de Imágenes Elegantes */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 40px 0;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* Árbol Interactivo (Simulado con CSS/JS) */
+        .tree-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .tree-node {
+            display: inline-block;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            border: 2px solid #8B4513;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            margin: 20px;
+            text-align: center;
+            line-height: 76px;
+            font-weight: bold;
+            color: #8B4513;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .tree-node:hover {
+            background: #8B4513;
+            color: white;
+            transform: scale(1.1);
+        }
+        .tree-line {
+            position: absolute;
+            height: 2px;
+            background: #8B4513;
+            width: 100px;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+        footer a {
+            color: #D2691E;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            header p { font-size: 1.2rem; }
+            nav ul { flex-direction: column; gap: 1rem; }
+        }
+    </style>
 </head>
 <body>
-  <header>
+    <!-- Navegación -->
     <nav>
-      <a href="index.html">Inicio</a>
-      <a href="Hermilo-Garcia.html">Genealogía García</a>
-      <a href="Blas-de-la-Garza.html">Blas de la Garza</a>
-      <a href="#contacto">Contacto</a>
+        <ul>
+            <li><a href="#inicio"><i class="fas fa-home"></i> Inicio</a></li>
+            <li><a href="#arbol"><i class="fas fa-sitemap"></i> Árbol Genealógico</a></li>
+            <li><a href="#galeria"><i class="fas fa-images"></i> Galería</a></li>
+            <li><a href="#contribuir"><i class="fas fa-edit"></i> Contribuir</a></li>
+            <li><a href="#contacto"><i class="fas fa-envelope"></i> Contacto</a></li>
+        </ul>
     </nav>
-  </header>
 
-  <main>
-    <h1>Sefarad MX</h1>
-    <p>Plataforma viva para la memoria sefardí en México. Documentamos, honramos y conectamos legados familiares con rigor y belleza.</p>
-    <a class="btn" href="Hermilo-Garcia.html">Ver Hermilo García</a>
-    <a class="btn" href="Blas-de-la-Garza.html">Ver Blas de la Garza</a>
-  </main>
+    <!-- Header Hero -->
+    <header id="inicio">
+        <div class="hero-content">
+            <h1>Sefarad-MX</h1>
+            <p>Explora el legado sefardí en México: Un árbol genealógico colaborativo inspirado en WikiTree, elegante e intuitivo para conectar historias familiares.</p>
+            <a href="#arbol" class="cta-button">Descubre tu Linaje</a>
+        </div>
+    </header>
 
-  <footer>
-    © <span id="year"></span> Sefarad MX. Todos los derechos reservados.
-  </footer>
+    <!-- Introducción -->
+    <section class="container intro">
+        <h2>Bienvenido a Sefarad-MX</h2>
+        <p>Como WikiTree, pero enfocado en la diáspora sefardí mexicana. Construye, comparte y visualiza tu árbol genealógico con un diseño profesional e impactante. Imágenes históricas y modernas se entrelazan para contar tu historia de forma elegante e intuitiva.</p>
+    </section>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+    <!-- Galería de Imágenes Bonitas -->
+    <section id="galeria" class="container">
+        <h2 style="text-align: center; font-family: 'Elegant Serif', serif; color: #8B4513; margin-bottom: 2rem; font-size: 2.5rem;">Galería Histórica</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sinagoga en México">
+                <div class="gallery-overlay">
+                    <h3>Sinagogas Antiguas</h3>
+                    <p>Raíces sefardíes en la arquitectura mexicana.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Familia Sefardí">
+                <div class="gallery-overlay">
+                    <h3>Familias Sefardíes</h3>
+                    <p>Historias que perduran a través de generaciones.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mapas Genealógicos">
+                <div class="gallery-overlay">
+                    <h3>Mapas del Legado</h3>
+                    <p>Desde España hasta México: El viaje de los sefardíes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Árbol Genealógico Simulado -->
+    <section id="arbol" class="container tree-container">
+        <h2 style="text-align: center; font-family: 'Elegant Serif', serif; color: #8B4513; margin-bottom: 2rem;">Tu Árbol Genealógico Interactivo</h2>
+        <p style="text-align: center; margin-bottom: 2rem;">Haz clic en los nodos para expandir. (Implementación completa con JS para datos reales en GitHub Pages).</p>
+        <div style="position: relative; display: flex; justify-content: center; align-items: center; height: 200px;">
+            <div class="tree-node" onclick="alert('Ancestro: Abraham Cohen - 1800s')">Abraham</div>
+            <div class="tree-line" style="left: calc(50% + 40px); width: 150px;"></div>
+            <div class="tree-node" onclick="alert('Padre: Isaac Levy - 1850s')">Isaac</div>
+            <div class="tree-line" style="left: calc(50% + 140px); width: 150px;"></div>
+            <div class="tree-node" onclick="alert('Tú: Usuario Actual - Hoy')">Tú</div>
+        </div>
+    </section>
+
+    <!-- Sección Contribuir -->
+    <section id="contribuir" class="container intro">
+        <h2>Contribuye a Sefarad-MX</h2>
+        <p>Al igual que WikiTree, invita a familiares a agregar ramas. Sube fotos, documentos y conecta con la comunidad sefardí mexicana.</p>
+        <a href="https://github.com/tu-usuario/Sefarad-MX" class="cta-button" style="display: block; max-width: 200px; margin: 2rem auto;">Fork en GitHub</a>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container">
+            <p>&copy; 2025 Sefarad-MX. Inspirado en WikiTree. <a href="mailto:contacto@sefarad-mx.com">Contáctanos</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
 </body>
-</html>
+          </html>
